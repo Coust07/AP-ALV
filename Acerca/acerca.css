@@ -1,0 +1,555 @@
+
+
+body{
+  background-color: #000000;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 1600 800'%3E%3Cg %3E%3Cpolygon fill='%23060606' points='1600 160 0 460 0 350 1600 50'/%3E%3Cpolygon fill='%230c0b0c' points='1600 260 0 560 0 450 1600 150'/%3E%3Cpolygon fill='%23131113' points='1600 360 0 660 0 550 1600 250'/%3E%3Cpolygon fill='%23191619' points='1600 460 0 760 0 650 1600 350'/%3E%3Cpolygon fill='%231F1C1F' points='1600 800 0 800 0 750 1600 450'/%3E%3C/g%3E%3C/svg%3E");
+  background-attachment: fixed;
+  background-size: cover;
+  
+}
+
+:root{
+    /* Colores */
+    --negro         : #393939;
+    
+    /* Tipografía */
+    --tipo-principal   : Helvetica, Arial, sans-serif;
+    --tipo-secundaria  : Verdana;
+  }
+    
+  /* (Opcional) Las adaptamos al modo oscuro */
+  @media (prefers-color-scheme: dark) {
+    :root{
+        --negro         : #ececec;
+    }
+  }
+  
+
+
+  
+  /* Reseteamos los margin y paddings de todas las etiquetas */
+  * , *::before , *::after{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+    vertical-align: baseline;
+  }
+  *::before , *::after{
+    display: block;
+  }
+  
+  /* Evitamos problemas con las imagenes */
+  img , picture , video , iframe , figure{
+    max-width: 100%;
+    width: 100%;
+    display: block;
+    /* (Opcional) */ object-fit: cover;        
+    /* (Opcional) */ object-position: center center;
+  }
+  
+  /* Reseteamos los enlaces para funcionar como cajas... */
+  a {
+    display: block;
+    text-decoration: none;
+    color:inherit;
+    font-size:inherit;
+  }
+ 
+  
+  /* Quitamos los puntos de los <li> */
+  li {
+    list-style-type: none;
+  }
+  
+ 
+
+  /* Evitamos problemas con los pseudoelementos de quotes */
+  blockquote:before, blockquote:after, q:before, q:after {
+      content: '';
+      content: none;
+  }
+  
+
+  
+  /* Nivelamos problemas de tipografías y colocación de formularios */
+  form , input, textarea, select , button , label{
+      font-family: inherit;
+      font-size: inherit;
+      hyphens: auto;
+      background-color: transparent;
+      color:inherit;
+      display: block;
+     
+  }
+  
+
+  /* Evitamos problemas con los SVG */
+  svg{
+      width: 100%;
+      display: block;
+      fill: currentColor;
+  }
+  
+  /* Configuramos la tipografía para toda la web */
+  body {
+  
+    font-family : var(--tipo-principal);
+    color       : var(--negro);
+    
+  }
+  
+  a{
+    text-decoration: none !important;
+    color: #ffff !important;
+  }
+
+  .header{
+width: 100%;
+background-color: #000000;
+padding: 1rem;
+display: flex;
+flex-flow: row wrap;
+justify-content: space-between;
+align-items: center;
+  }
+
+  .header .Logo{
+    width: 500px;
+    height: 80px;
+  }
+
+  .header .h1{
+background-color: rgb(0, 0, 0);
+  }
+
+  .header .button{
+    background-color: rgb(0, 0, 0);
+    display: none;
+  }
+
+  .header .nav{
+    background-color: rgb(0, 0, 0);
+   
+  }
+
+  .header .svg{
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .header .ul{
+    display: flex;
+    flex-flow: nowrap;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 40px;
+
+  }
+
+  .header .in:hover{
+    background-color: #393939;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 10px;
+    transition: .5s;
+  }
+
+  .header .in{
+    margin: 0 .5em;
+  }
+
+  .nav .ul {
+direction: rtl;
+
+  }
+
+  .pre{
+    margin: 15px;
+    text-align: center;
+    position: relative;
+    right: 15px;
+  }
+  
+  .pre:hover{
+    background-color: #393939;
+    border-radius: 10px;
+    transition: .5s ease;
+  }
+  
+  .nave {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+  
+  .nave > li {
+    position: relative;
+    list-style: none;
+    margin: 0 1em;
+  }
+  
+  .nave > li > a {
+    display: block;
+    padding: 0.5em;
+    color: #ececec;
+    text-decoration: none;
+    
+  }
+  
+  .sub {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #000000;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    z-index: 1;
+    display: none;
+    border-radius: 10px;
+  }
+  
+  .sub li {
+    display: block;
+  }
+  
+  .sub li a {
+    display: block;
+    padding: 0.5em;
+    color: #ececec;
+    text-decoration: none;
+  }
+  
+  .nave > li:hover .sub {
+    display: block;
+  }
+
+  @media screen and (max-width:480px) {
+    .header .button{
+        display: block;
+        cursor: pointer;
+        color: #ececec;
+    }
+    .header .nav{
+        width: 100%;
+        /*display: none;*/
+        height: 0;
+        overflow: hidden;
+        pointer-events: none;
+        transition: all .5s ease;
+        display: flex;
+        flex-flow: column nowrap ;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        left: -15px;
+    }
+    .header .nav.activo{
+       /* display: block;*/
+        height: 130vh;
+        pointer-events: auto;
+        overflow: scroll;
+    }
+    .header .ul{
+        flex-direction: column;
+    }
+
+    .header .in{
+        margin: 1rem 0;
+    }
+    .header .pre{
+        margin: 1rem 0;
+    }
+
+    .pre{
+      margin: 15px;
+      text-align: center;
+    }
+    
+    .pre:hover{
+      background-color: #393939;
+      border-radius: 10px;
+      transition: .5s ease;
+    }
+    
+    .nave {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .nave .in{
+      position: relative;
+      right: 20px;
+    }
+    
+    .nave > li {
+      position: relative;
+      list-style: none;
+      margin: 0 1em;
+    }
+    
+    .nave > li > a {
+      display: block;
+      padding: 0.5em;
+      color: #ececec;
+      text-decoration: none;
+    }
+    
+    .sub {
+      position: absolute;
+      top: 100%;
+        left: 0%;
+      background-color: #000000;
+      border: 1px solid #ccc;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      z-index: 1;
+      display: none;
+      border-radius: 10px;
+      width: 100%;
+      overflow: scroll;
+    }
+    
+    .sub li {
+      display: block;
+    }
+    
+    .sub li a {
+      display: block;
+      padding: 0.5em;
+      color: #ececec;
+      text-decoration: none;
+    }
+    
+    .nave > li:hover .sub {
+      display: block;
+      z-index: 1;
+    }
+
+    ::-webkit-scrollbar{
+      width: 0;
+    }
+  }
+
+
+
+
+   .titulo{
+    text-align: center;
+    padding: 1rem;
+    color: #c00000;
+   }
+    .descri{
+        margin: 0 auto;
+        width: 50%;
+        height: 690px;
+        margin-top: 50px;
+        background-color: #000000;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 1600 800'%3E%3Cg %3E%3Cpolygon fill='%23060606' points='1600 160 0 460 0 350 1600 50'/%3E%3Cpolygon fill='%230c0b0c' points='1600 260 0 560 0 450 1600 150'/%3E%3Cpolygon fill='%23131113' points='1600 360 0 660 0 550 1600 250'/%3E%3Cpolygon fill='%23191619' points='1600 460 0 760 0 650 1600 350'/%3E%3Cpolygon fill='%231F1C1F' points='1600 800 0 800 0 750 1600 450'/%3E%3C/g%3E%3C/svg%3E");
+    background-attachment: fixed;
+    background-size: cover;
+        border-radius: 10px;
+        font-size: 30px;
+        color: aliceblue;
+        font-family: 'Times New Roman', Times, serif;
+    }
+
+    .descri p{
+padding: 3rem;
+    }
+   
+    
+    strong{
+        color: rgb(255, 0, 0);
+    }
+    
+    .tabla{
+      background-color: #000000;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 1600 800'%3E%3Cg %3E%3Cpolygon fill='%23060606' points='1600 160 0 460 0 350 1600 50'/%3E%3Cpolygon fill='%230c0b0c' points='1600 260 0 560 0 450 1600 150'/%3E%3Cpolygon fill='%23131113' points='1600 360 0 660 0 550 1600 250'/%3E%3Cpolygon fill='%23191619' points='1600 460 0 760 0 650 1600 350'/%3E%3Cpolygon fill='%231F1C1F' points='1600 800 0 800 0 750 1600 450'/%3E%3C/g%3E%3C/svg%3E");
+      background-attachment: fixed;
+      background-size: cover;
+        width: 400px;
+        height: 490px;
+        display: grid;
+        float: right;
+        top: -530px;
+        margin-right: 25px;
+        position: relative;
+        
+    }
+   
+    
+    .explicacion p{
+        color: aliceblue;
+        font-size: 25px ;
+        margin-bottom: 50px;
+        position: relative;
+        padding: 2rem;
+    }
+    
+    .tabla1{
+      background-color: #000000;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 1600 800'%3E%3Cg %3E%3Cpolygon fill='%23060606' points='1600 160 0 460 0 350 1600 50'/%3E%3Cpolygon fill='%230c0b0c' points='1600 260 0 560 0 450 1600 150'/%3E%3Cpolygon fill='%23131113' points='1600 360 0 660 0 550 1600 250'/%3E%3Cpolygon fill='%23191619' points='1600 460 0 760 0 650 1600 350'/%3E%3Cpolygon fill='%231F1C1F' points='1600 800 0 800 0 750 1600 450'/%3E%3C/g%3E%3C/svg%3E");
+      background-attachment: fixed;
+      background-size: cover;
+        width: 400px;
+        height: 490px;
+        display: grid;
+        float: left;
+        top: -530px;
+        margin-left: 25px;
+        position: relative;
+        justify-content: center;
+        justify-items: center;
+
+    }
+
+    
+   
+    .explicacion1 p{
+        color: aliceblue;
+        font-size: 25px ;
+        margin-bottom: 50px;
+        position: relative;
+        padding: 2rem;
+    }
+    .reglas{
+      width: 98%;
+      background-color: #000000;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 1600 800'%3E%3Cg %3E%3Cpolygon fill='%23060606' points='1600 160 0 460 0 350 1600 50'/%3E%3Cpolygon fill='%230c0b0c' points='1600 260 0 560 0 450 1600 150'/%3E%3Cpolygon fill='%23131113' points='1600 360 0 660 0 550 1600 250'/%3E%3Cpolygon fill='%23191619' points='1600 460 0 760 0 650 1600 350'/%3E%3Cpolygon fill='%231F1C1F' points='1600 800 0 800 0 750 1600 450'/%3E%3C/g%3E%3C/svg%3E");
+      background-attachment: fixed;
+      background-size: cover;
+      margin-left: 1.5%;
+      position: absolute;
+      border-radius: 10px;
+      top: 1050px;
+      z-index: -100;
+      font-family: 'Times New Roman', Times, serif;
+    }
+    
+    .reglas h1{
+      padding: 1rem;
+      color: red;
+      text-align: center;
+    }
+    
+    .listaR{
+      height: 300px;
+      margin: 0 auto;
+      
+      }
+      .re{
+        padding: 5px;
+        font-size: 25px;
+        color: aliceblue;
+      }
+    
+      .ad2{
+        position: absolute;
+        width: 20%;
+        height: 100px;
+        background-color: rgb(57, 63, 63);
+        display: flex;
+        top: 200px;
+        left: 90px;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+      }
+      
+      .ad{
+        position: absolute;
+        width: 20%;
+        height: 100px;
+        background-color: rgb(57, 63, 63);
+        display: flex;
+        top: 200px;
+        right: 100px;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+      }
+
+    @media screen and (max-width: 480px) {
+      main {
+        flex-direction: column;
+      }
+
+      .descri{
+        margin: auto;
+    
+      
+              }
+      
+      .tabla{
+        position: relative;
+        top: 1450px;
+        
+        margin: auto;
+      }
+      .tabla h1{
+        font-size: 30px;
+       margin-top: 5px;
+        margin-bottom: 5px;
+        text-align: center;
+      }
+      .tabla p{
+        font-size: 30px;
+        font-family: 'Times New Roman', Times, serif;
+      }
+
+      .info, .descri, .tabla, .tabla1 {
+        width: 100%;
+
+      }
+
+      .tabla1 {
+          position: relative;
+          top: 1250px;
+          
+          margin: auto;
+        
+      }
+      .tabla1 h1{
+        font-size: 30px;
+       margin-top: 10px;
+        margin-bottom: 5px;
+      }
+      .tabla1 p{
+        font-size: 30px;
+        font-family: 'Times New Roman', Times, serif;
+      }
+
+
+      .reglas{
+        width: 100%;
+        height: 3350px;
+        background-color: #000000;
+          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 1600 800'%3E%3Cg fill-opacity='0.31'%3E%3Cpolygon fill='%23220000' points='1600 160 0 460 0 350 1600 50'/%3E%3Cpolygon fill='%23440000' points='1600 260 0 560 0 450 1600 150'/%3E%3Cpolygon fill='%23660000' points='1600 360 0 660 0 550 1600 250'/%3E%3Cpolygon fill='%23880000' points='1600 460 0 760 0 650 1600 350'/%3E%3Cpolygon fill='%23A00' points='1600 800 0 800 0 750 1600 450'/%3E%3C/g%3E%3C/svg%3E");
+          background-attachment: fixed;
+          background-size: cover;
+        margin-left: 1.5%;
+        position: absolute;
+        border-radius: 10px;
+        top: 3550px;
+      }
+
+      .reglas h1{
+        color: red;
+        text-align: center;
+        
+      }
+
+      .re{
+        padding: 5px;
+        font-size: 30px;
+        padding: 1.5rem;
+      }
+
+      .ad2, .ad{
+        display: none;
+      }
+    }
+  

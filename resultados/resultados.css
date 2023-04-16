@@ -1,0 +1,720 @@
+body{
+  background-color: #000000;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 1600 800'%3E%3Cg %3E%3Cpolygon fill='%23060606' points='1600 160 0 460 0 350 1600 50'/%3E%3Cpolygon fill='%230c0b0c' points='1600 260 0 560 0 450 1600 150'/%3E%3Cpolygon fill='%23131113' points='1600 360 0 660 0 550 1600 250'/%3E%3Cpolygon fill='%23191619' points='1600 460 0 760 0 650 1600 350'/%3E%3Cpolygon fill='%231F1C1F' points='1600 800 0 800 0 750 1600 450'/%3E%3C/g%3E%3C/svg%3E");
+  background-attachment: fixed;
+  background-size: cover;
+  
+}
+
+:root{
+    /* Colores */
+    --negro         : #393939;
+    
+    /* Tipografía */
+    --tipo-principal   : Helvetica, Arial, sans-serif;
+    --tipo-secundaria  : Verdana;
+  }
+    
+  /* (Opcional) Las adaptamos al modo oscuro */
+  @media (prefers-color-scheme: dark) {
+    :root{
+        --negro         : #ececec;
+    }
+  }
+  
+
+
+  
+  /* Reseteamos los margin y paddings de todas las etiquetas */
+  * , *::before , *::after{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+    vertical-align: baseline;
+  }
+  *::before , *::after{
+    display: block;
+  }
+  
+  /* Evitamos problemas con las imagenes */
+  img , picture , video , iframe , figure{
+    max-width: 100%;
+    width: 100%;
+    display: block;
+    /* (Opcional) */ object-fit: cover;        
+    /* (Opcional) */ object-position: center center;
+  }
+  
+  /* Reseteamos los enlaces para funcionar como cajas... */
+  a {
+    display: block;
+    text-decoration: none;
+    color:inherit;
+    font-size:inherit;
+  }
+ 
+  
+  /* Quitamos los puntos de los <li> */
+  li {
+    list-style-type: none;
+  }
+  
+ 
+
+  /* Evitamos problemas con los pseudoelementos de quotes */
+  blockquote:before, blockquote:after, q:before, q:after {
+      content: '';
+      content: none;
+  }
+  
+
+  
+  /* Nivelamos problemas de tipografías y colocación de formularios */
+  form , input, textarea, select , button , label{
+      font-family: inherit;
+      font-size: inherit;
+      hyphens: auto;
+      background-color: transparent;
+      color:inherit;
+      display: block;
+     
+  }
+  
+
+  /* Evitamos problemas con los SVG */
+  svg{
+      width: 100%;
+      display: block;
+      fill: currentColor;
+  }
+  
+  /* Configuramos la tipografía para toda la web */
+  body {
+  
+    font-family : var(--tipo-principal);
+    color       : var(--negro);
+    
+  }
+  
+  a{
+    text-decoration: none !important;
+    color: #ffff !important;
+  }
+
+  .header{
+width: 100%;
+background-color: #000000;
+padding: 1rem;
+display: flex;
+flex-flow: row wrap;
+justify-content: space-between;
+align-items: center;
+  }
+
+  .header .Logo{
+    width: 500px;
+    height: 80px;
+  }
+
+  .header .h1{
+background-color: rgb(0, 0, 0);
+  }
+
+  .header .button{
+    background-color: rgb(0, 0, 0);
+    display: none;
+  }
+
+  .header .nav{
+    background-color: rgb(0, 0, 0);
+   
+  }
+
+  .header .svg{
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .header .ul{
+    display: flex;
+    flex-flow: nowrap;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 40px;
+
+  }
+
+  .header .in:hover{
+    background-color: #393939;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 10px;
+    transition: .5s;
+  }
+
+  .header .in{
+    margin: 0 .5em;
+  }
+
+  .nav .ul {
+direction: rtl;
+
+  }
+
+  .pre{
+    margin: 15px;
+    text-align: center;
+    position: relative;
+    right: 15px;
+  }
+  
+  .pre:hover{
+    background-color: #393939;
+    border-radius: 10px;
+    transition: .5s ease;
+  }
+  
+  .nave {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+  
+  .nave > li {
+    position: relative;
+    list-style: none;
+    margin: 0 1em;
+  }
+  
+  .nave > li > a {
+    display: block;
+    padding: 0.5em;
+    color: #ececec;
+    text-decoration: none;
+    
+  }
+  
+  .sub {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #000000;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    z-index: 1;
+    display: none;
+    border-radius: 10px;
+  }
+  
+  .sub li {
+    display: block;
+  }
+  
+  .sub li a {
+    display: block;
+    padding: 0.5em;
+    color: #ececec;
+    text-decoration: none;
+  }
+  
+  .nave > li:hover .sub {
+    display: block;
+  }
+
+  @media screen and (max-width:480px) {
+    .header .button{
+        display: block;
+        cursor: pointer;
+        color: #ececec;
+    }
+    .header .nav{
+        width: 100%;
+        /*display: none;*/
+        height: 0;
+        overflow: hidden;
+        pointer-events: none;
+        transition: all .5s ease;
+        display: flex;
+        flex-flow: column nowrap ;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        left: -15px;
+
+    }
+    .header .nav.activo{
+       /* display: block;*/
+        height: 130vh;
+        pointer-events: auto;
+        overflow: scroll;
+    }
+    .header .ul{
+        flex-direction: column;
+    }
+
+    .header .in{
+        margin: 1rem 0;
+    }
+    .header .pre{
+        margin: 1rem 0;
+    }
+
+    .pre{
+      margin: 15px;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      width: 100%;
+    }
+    
+    .pre:hover{
+      background-color: #393939;
+      border-radius: 10px;
+      transition: .5s ease;
+    }
+    
+    
+    .nave {
+      display: flex;
+      justify-content: center;
+      align-items: center; 
+      position: relative;
+      
+      
+    }
+
+  .nave .in{
+    position: relative;
+    right: 20px;
+  }
+    
+    .nave > li {
+      position: relative;
+      list-style: none;
+      margin: 0 1em;
+    }
+    
+    .nave > li > a {
+      display: block;
+      padding: 0.5em;
+      color: #ececec;
+      text-decoration: none;
+      width: 100%;
+    }
+    
+    .sub {
+      position: relative;
+      top: 100%;
+        left: 10px;
+      background-color: #000000;
+      border: 1px solid #ccc;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      z-index: 1;
+      border-radius: 10px;
+      width: 100%;
+      overflow: scroll;
+    }
+    
+    
+  }
+
+  .top{
+    position: relative;
+display: flex;
+flex-wrap: wrap;
+width: 80%;
+height: 600px;
+gap: 10px;
+margin: 10px;
+top: 0px;
+object-fit: cover;
+overflow: hidden;
+overflow: scroll;
+  }
+
+  .bets{
+    color:  rgb(0, 0, 0);
+    background-color: rgba(255, 197, 6, 0.8);
+    font-size: 20px;
+    font-weight: 50px;
+text-align: center;
+}
+
+
+  img{
+    width: 350px;
+    height: 190px;
+    
+  }
+  .titulo{
+   position: relative;
+    display: flex;
+    justify-content: center;
+    width: 75.6%;
+    top: 10px;
+    color: #e9e4e4;
+    background-color: rgb(12, 78, 3);
+    border-radius: 5px;
+    left: 8px;
+  }
+
+  .hr{
+    width: 75.6%;
+  }
+
+  .top .images-container{
+       
+    position: relative;
+    border-radius: 10px;
+    top: 0px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    padding: 10px;
+    right: 45px;
+    
+}
+
+.top .images-container .bets{
+    height: 180px;
+    width: 350px;
+    overflow: hidden;
+    border: 1px solid rgb(87, 84, 70);
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 5px 15px #000000;
+}
+
+.top .images-container .bets img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    transition: .2s linear;
+}
+
+.top .images-container .bets:hover img{
+    transform: scale(1.1);
+}
+
+.top .popup-image{
+    position: fixed;
+    top: 0; left: 0;
+    background: #171818;
+    height: 100%;
+    width: 100%;
+    z-index: 100;
+    display: none;
+}
+
+.top .popup-image span{
+    position: absolute;
+    top: 0; right:10px;
+    font-size: 60px;
+    font-weight: bolder;
+    color: aliceblue;
+    cursor: pointer;
+    z-index: 100;
+}
+
+.top .popup-image img{
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    border: 5px solid rgb(255, 255, 255);
+    border-radius: 10px;
+    width: 750px;
+    height: 427px;
+    object-fit: cover;
+}
+
+@media (max-width:768px) {
+    .top .popup-image img{
+        width: 95%;
+        
+    }
+}
+.adesds{
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  gap: 10px;
+  left: 10px;
+  width: 75.6%;
+  margin-bottom: -120px;
+}
+.ads{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  background-color: #393939;
+  width: 35%;
+  height: 100px;
+  text-align: center;
+  
+}
+.ads2{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  background-color: #393939;
+  width: 35%;
+  height: 100px;
+  text-align: center;
+}
+
+.tablas{
+  background-color: #000000;
+background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 1600 800'%3E%3Cg fill-opacity='0.08'%3E%3Cpolygon fill='%23220000' points='1600 160 0 460 0 350 1600 50'/%3E%3Cpolygon fill='%23440000' points='1600 260 0 560 0 450 1600 150'/%3E%3Cpolygon fill='%23660000' points='1600 360 0 660 0 550 1600 250'/%3E%3Cpolygon fill='%23880000' points='1600 460 0 760 0 650 1600 350'/%3E%3Cpolygon fill='%23A00' points='1600 800 0 800 0 750 1600 450'/%3E%3C/g%3E%3C/svg%3E");
+background-attachment: fixed;
+background-size: cover;
+  width: 20%;
+  height: 470px;
+  padding: 1px;
+  border-radius: 10px;
+  margin-top:20px;
+  position: absolute;
+  float: right;
+  margin-right: 70px;
+  text-align: center;
+  font-size: 15px;
+  box-shadow: 1px 1px 5px;
+  color: #393939;
+  top: 110px;
+  left: 1490px;
+  
+  
+}
+
+.tablas h1{
+  color: #ececec;
+  top:5px;
+  position: relative;
+  font-size: 20px;
+  
+}
+
+.datatable-container{
+  color: aliceblue;
+  padding: 0px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ 
+  
+ 
+ 
+  
+}
+
+
+table {
+  margin-top: 30px;
+  object-fit: contain;
+  border: 1px solid black;
+ 
+  
+  
+}
+
+th, td {
+ 
+  padding: 5px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+  height: 5px;
+  width: 100%;
+
+  
+  
+  
+}
+
+th {
+  background-color: #f2f2f2;
+
+}
+
+
+
+
+#myTable img{
+    width: 15px;
+    height: 25px;
+}
+#myTable2 img{
+    width: 15px;
+    height: 25px;
+}
+#myTable3 img{
+    width: 15px;
+    height: 25px;
+}
+
+.green{
+    color: green ;
+}
+.red{
+    color: red ;
+}
+
+.par{
+    color: rgb(243, 247, 4, .5);
+}
+
+tr:nth-child(2) {
+    background-color: rgb(8, 80, 8, .4) ;
+}
+tr:last-child {
+    background-color: rgb(160, 9, 9, .4);
+
+}
+
+
+  .slick-prev::before,
+.slick-next::before {
+  display: none;
+}
+
+
+.slick-prev::before,
+.slick-next::before {
+  display: none;
+}
+
+.enrrachado{
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  left: 1490px;
+  top: 620px;
+  width: 20%;
+  height: 300px;
+  border-radius: 10px;
+  background-image: url(../Img/enrrachado.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  
+}
+.personas{
+  color: #ececec;
+  text-align: center;
+}
+
+.enrrachado .personas{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+}
+
+@media (max-width:768px) {    
+  .top{
+    position: relative;
+    width: 90%;
+    left: 20px;
+      display: flex;
+      justify-content: center;
+      overflow: hidden;
+      overflow: scroll;
+      
+    
+    }
+    .images-container{
+      width: 100%;
+      left: 0px;
+    }
+
+    .titulo{
+      position: relative;
+      left: 65px;
+    }
+
+    .hr{
+      width: 100%;
+    }
+      .tablas{
+        position: relative;
+        background-color: #000000;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 1600 800'%3E%3Cg fill-opacity='0.08'%3E%3Cpolygon fill='%23220000' points='1600 160 0 460 0 350 1600 50'/%3E%3Cpolygon fill='%23440000' points='1600 260 0 560 0 450 1600 150'/%3E%3Cpolygon fill='%23660000' points='1600 360 0 660 0 550 1600 250'/%3E%3Cpolygon fill='%23880000' points='1600 460 0 760 0 650 1600 350'/%3E%3Cpolygon fill='%23A00' points='1600 800 0 800 0 750 1600 450'/%3E%3C/g%3E%3C/svg%3E");
+        background-attachment: fixed;
+        background-size: cover;
+          width: 90%;
+          height: 470px;
+          padding: 1px;
+          border-radius: 10px;
+          margin-top:20px;
+          float: right;
+          margin-right: 70px;
+          text-align: center;
+          font-size: 15px;
+          box-shadow: 1px 1px 5px;
+          color: #393939;
+          top: 110px;
+          left: 50px;
+      }
+
+      .enrrachado{
+        position: relative;
+        display: flex;
+        justify-content: center;
+        left:5px;
+        width: 50%;
+        top: 250px;
+        width: 100%;
+        height: 300px;
+        border-radius: 10px;
+        background-image: url(../Img/enrrachado.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+      }
+      .personas{
+        width: 20%;
+      }
+
+      .adesds{
+        position: relative;
+        display: flex;
+        justify-content: space-around;
+        gap: 10px;
+        left: 10px;
+        width: 100%;
+        margin-bottom: -120px;
+      }
+
+      .ads2{
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+        background-color: #393939;
+        width: 100%;
+        height: 100px;
+        text-align: center;
+        top: -780px;
+        right: 115px;
+      }
+      .ads{
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+        background-color: #393939;
+        width: 100%;
+        height: 100px;
+        text-align: center;
+        top: -170px;
+        left: 95px;
+      }
+    } ::-webkit-scrollbar{
+      width: 0;
+    }

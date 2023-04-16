@@ -1,0 +1,589 @@
+
+
+body{
+  background-color: #000000;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 1600 800'%3E%3Cg %3E%3Cpolygon fill='%23060606' points='1600 160 0 460 0 350 1600 50'/%3E%3Cpolygon fill='%230c0b0c' points='1600 260 0 560 0 450 1600 150'/%3E%3Cpolygon fill='%23131113' points='1600 360 0 660 0 550 1600 250'/%3E%3Cpolygon fill='%23191619' points='1600 460 0 760 0 650 1600 350'/%3E%3Cpolygon fill='%231F1C1F' points='1600 800 0 800 0 750 1600 450'/%3E%3C/g%3E%3C/svg%3E");
+  background-attachment: fixed;
+  background-size: cover;
+  
+}
+
+:root{
+    /* Colores */
+    --negro         : #393939;
+    
+    /* Tipografía */
+    --tipo-principal   : Helvetica, Arial, sans-serif;
+    --tipo-secundaria  : Verdana;
+  }
+    
+  /* (Opcional) Las adaptamos al modo oscuro */
+  @media (prefers-color-scheme: dark) {
+    :root{
+        --negro         : #ececec;
+    }
+  }
+  
+
+
+  
+  /* Reseteamos los margin y paddings de todas las etiquetas */
+  * , *::before , *::after{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+    vertical-align: baseline;
+  }
+  *::before , *::after{
+    display: block;
+  }
+  
+  /* Evitamos problemas con las imagenes */
+  img , picture , video , iframe , figure{
+    max-width: 100%;
+    width: 100%;
+    display: block;
+    /* (Opcional) */ object-fit: cover;        
+    /* (Opcional) */ object-position: center center;
+  }
+  
+  /* Reseteamos los enlaces para funcionar como cajas... */
+  a {
+    display: block;
+    text-decoration: none;
+    color:inherit;
+    font-size:inherit;
+  }
+ 
+  
+  /* Quitamos los puntos de los <li> */
+  li {
+    list-style-type: none;
+  }
+  
+ 
+
+  /* Evitamos problemas con los pseudoelementos de quotes */
+  blockquote:before, blockquote:after, q:before, q:after {
+      content: '';
+      content: none;
+  }
+  
+
+  
+  /* Nivelamos problemas de tipografías y colocación de formularios */
+  form , input, textarea, select , button , label{
+      font-family: inherit;
+      font-size: inherit;
+      hyphens: auto;
+      background-color: transparent;
+      color:inherit;
+      display: block;
+     
+  }
+  
+
+  /* Evitamos problemas con los SVG */
+  svg{
+      width: 100%;
+      display: block;
+      fill: currentColor;
+  }
+  
+  /* Configuramos la tipografía para toda la web */
+  body {
+  
+    font-family : var(--tipo-principal);
+    color       : var(--negro);
+    
+  }
+  
+  a{
+    text-decoration: none !important;
+    color: #ffff !important;
+  }
+
+  .header{
+width: 100%;
+background-color: #000000;
+padding: 1rem;
+display: flex;
+flex-flow: row wrap;
+justify-content: space-between;
+align-items: center;
+  }
+
+  .header .Logo{
+    width: 500px;
+    height: 80px;
+  }
+
+  .header .h1{
+background-color: rgb(0, 0, 0);
+  }
+
+  .header .button{
+    background-color: rgb(0, 0, 0);
+    display: none;
+  }
+
+  .header .nav{
+    background-color: rgb(0, 0, 0);
+   
+  }
+
+  .header .svg{
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .header .ul{
+    display: flex;
+    flex-flow: nowrap;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 40px;
+
+  }
+
+  .header .in:hover{
+    background-color: #393939;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 10px;
+    transition: .5s;
+  }
+
+  .header .in{
+    margin: 0 .5em;
+  }
+
+  .nav .ul {
+direction: rtl;
+
+  }
+
+  .pre{
+    margin: 15px;
+    text-align: center;
+    position: relative;
+    right: 15px;
+  }
+  
+  .pre:hover{
+    background-color: #393939;
+    border-radius: 10px;
+    transition: .5s ease;
+  }
+  
+  .nave {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+  
+  .nave > li {
+    position: relative;
+    list-style: none;
+    margin: 0 1em;
+  }
+  
+  .nave > li > a {
+    display: block;
+    padding: 0.5em;
+    color: #ececec;
+    text-decoration: none;
+    
+  }
+  
+  .sub {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #000000;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    z-index: 1;
+    display: none;
+    border-radius: 10px;
+  }
+  
+  .sub li {
+    display: block;
+  }
+  
+  .sub li a {
+    display: block;
+    padding: 0.5em;
+    color: #ececec;
+    text-decoration: none;
+  }
+  
+  .nave > li:hover .sub {
+    display: block;
+  }
+
+  @media screen and (max-width:480px) {
+    .header .button{
+        display: block;
+        cursor: pointer;
+        color: #ececec;
+    }
+    .header .nav{
+        width: 100%;
+        /*display: none;*/
+        height: 0;
+        overflow: hidden;
+        pointer-events: none;
+        transition: all .5s ease;
+        display: flex;
+        flex-flow: column nowrap ;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        left: -15px;
+    }
+    .header .nav.activo{
+       /* display: block;*/
+        height: 130vh;
+        pointer-events: auto;
+        overflow: scroll;
+    }
+    .header .ul{
+        flex-direction: column;
+    }
+
+    .header .in{
+        margin: 1rem 0;
+    }
+    .header .pre{
+        margin: 1rem 0;
+    }
+
+    .pre{
+      margin: 15px;
+      text-align: center;
+    }
+    
+    .pre:hover{
+      background-color: #393939;
+      border-radius: 10px;
+      transition: .5s ease;
+    }
+    
+    .nave {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .nave > li {
+      position: relative;
+      list-style: none;
+      margin: 0 1em;
+    }
+    
+    .nave > li > a {
+      display: block;
+      padding: 0.5em;
+      color: #ececec;
+      text-decoration: none;
+    }
+    
+    .sub {
+      position: absolute;
+      top: 100%;
+        left: 0%;
+      background-color: #000000;
+      border: 1px solid #ccc;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      z-index: 1;
+      display: none;
+      border-radius: 10px;
+      width: 100%;
+      overflow: scroll;
+    }
+    
+    .sub li {
+      display: block;
+    }
+    
+    .sub li a {
+      display: block;
+      padding: 0.5em;
+      color: #ececec;
+      text-decoration: none;
+    }
+    
+    .nave > li:hover .sub {
+      display: block;
+      z-index: 1;
+    }
+  }
+
+
+    .torneo{
+      position: relative;
+      display: inline-flex;
+      justify-content: space-evenly;
+      text-align: center;
+      background-color: #000000;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 1600 800'%3E%3Cg %3E%3Cpolygon fill='%23060606' points='1600 160 0 460 0 350 1600 50'/%3E%3Cpolygon fill='%230c0b0c' points='1600 260 0 560 0 450 1600 150'/%3E%3Cpolygon fill='%23131113' points='1600 360 0 660 0 550 1600 250'/%3E%3Cpolygon fill='%23191619' points='1600 460 0 760 0 650 1600 350'/%3E%3Cpolygon fill='%231F1C1F' points='1600 800 0 800 0 750 1600 450'/%3E%3C/g%3E%3C/svg%3E");
+      background-attachment: fixed;
+      background-size: cover;
+      width: 50%;
+      margin: auto 0;
+      left: 550px;
+      top: -550px;
+      border-radius: 10px;
+      height: 250px;
+      
+    }
+
+    .Multi{
+text-align: center;
+width: 25%;
+background-image: url(../Img/torneo/545454.jpg);
+height: 500px;
+border-radius: 10px;
+background-repeat: no-repeat;
+background-size: cover;
+background-position: center;
+object-fit: cover;
+    }
+    .Multi1{
+text-align: center;
+width: 25%;
+background-image: url(../Img//torneo/LeBron-James-Los-Angeles-Lakers-Staples-Center-2019.webp);
+height: 500px;
+border-radius: 10px;
+background-repeat: no-repeat;
+background-size: cover;
+background-position: center;
+object-fit: cover;
+    }
+    .Multi2{
+text-align: center;
+width: 25%;
+background-image: url(../Img/torneo/1255079041_0.jpg);
+height: 500px;
+border-radius: 10px;
+background-repeat: no-repeat;
+object-fit: contain;
+background-size: cover;
+
+    }
+
+    .reg{
+      color: white;
+  text-shadow: 3px 3px black;
+  font-size: 36px;
+  text-align: center;
+  position: relative;
+  top: 130px;
+    }
+
+    input{
+      position: relative;
+      top: 420px;
+      text-align: center;
+      background-color: rgb(76, 175, 80);
+      padding: 1em;
+      border-radius: 10px;
+      cursor: pointer !important;
+      display: flex;
+      left: 70px;
+    }
+    
+    input:hover{
+      background-color: rgb(69, 160, 73);
+      cursor: pointer !important;
+    }
+    
+    .Info{
+      background-color: #000000;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 1600 800'%3E%3Cg %3E%3Cpolygon fill='%23060606' points='1600 160 0 460 0 350 1600 50'/%3E%3Cpolygon fill='%230c0b0c' points='1600 260 0 560 0 450 1600 150'/%3E%3Cpolygon fill='%23131113' points='1600 360 0 660 0 550 1600 250'/%3E%3Cpolygon fill='%23191619' points='1600 460 0 760 0 650 1600 350'/%3E%3Cpolygon fill='%231F1C1F' points='1600 800 0 800 0 750 1600 450'/%3E%3C/g%3E%3C/svg%3E");
+      background-attachment: fixed;
+      background-size: cover;
+      width: 20%;
+      margin-left: 50px;
+      position: relative;
+      top: 50px;
+      text-align: center;
+color: #ececec;
+overflow: scroll;
+overflow-x: hidden;
+border: #ececec 1px solid;
+height: 750px;
+    }
+
+    ::-webkit-scrollbar{
+      width: 0;
+    }
+
+    .Info h1{
+      text-align: center;
+    }
+    .resume p{
+      padding: 10px;
+
+    }
+
+    strong{
+      color: brown;
+    }
+
+    .mayor{
+      position: relative;
+      float: right;
+      width: 20%;
+      right: 30px;
+      bottom: 380px ; 
+      
+    }
+
+    .ad2{
+      position: absolute;
+      left: 1506px;
+      width: 20%;
+      height: 290px;
+      background-color: rgb(57, 63, 63);
+      display: flex;
+      top: 185px;
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+      border-radius: 10px;
+    }
+
+    .ad{
+      position: absolute;
+      width: 20%;
+      height: 250px;
+      background-color: rgb(57, 63, 63);
+      display: flex;
+      top: 670px;
+      left: 1506px;
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+      border-radius: 10px;
+    }
+
+    @media screen and (max-width:480px){
+      .torneo{
+        top:250px;
+        left: 50px;
+        display: flex; flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 900px;
+    }
+    
+    ::-webkit-scrollbar{
+      width: 0;
+    }
+    .Multi{
+      text-align: center;
+      width: 100%;
+      background-image: url(../Img/torneo/545454.jpg);
+      height: 500px;
+      border-radius: 10px;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      object-fit: cover;
+      position: relative;
+      left: 50px;
+          }
+          .Multi1{
+      text-align: center;
+      width: 100%;
+      background-image: url(../Img//torneo/LeBron-James-Los-Angeles-Lakers-Staples-Center-2019.webp);
+      height: 500px;
+      border-radius: 10px;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      object-fit: cover;
+      position: relative;
+      left: 50px;
+      margin: 20px 0px;
+          }
+          .Multi2{
+      text-align: center;
+      width: 100%;
+      background-image: url(../Img/torneo/1255079041_0.jpg);
+      height: 500px;
+      border-radius: 10px;
+      background-repeat: no-repeat;
+      object-fit: contain;
+      background-size: cover;
+      position: relative;
+      left: 50px;
+      
+          }
+
+          .reg{
+            color: white;
+            text-shadow: 3px 3px black;
+            font-size: 36px;
+            text-align: center;
+            position: relative;
+            top: 50px;
+          }
+    input{
+      top: 220px;
+      position: relative;
+      left:  50px;
+
+    }
+  .Info{
+    margin: 0;
+    width: 100%;
+    
+   
+  }
+
+  .mayor{
+      position: relative;
+      float: right;
+      width: 100%;
+      right: 0px;
+      top: 440px ; 
+      
+    }
+
+    .ad2{
+      position: relative;
+      width: 100%;
+      height: 150px;
+      background-color: rgb(57, 63, 63);
+      display: flex;
+      top: -1000px;
+      left: -0px;
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+      border-radius: 10px;
+    }
+
+    .ad{
+      position: relative;
+      width: 100%;
+      height: 150px;
+      background-color: rgb(57, 63, 63);
+      display: flex;
+      left: -0px;
+      top: -50px;
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+      border-radius: 10px;
+    }
+
+    body{
+      overflow:scroll;
+    }
+  }

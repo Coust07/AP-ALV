@@ -1,0 +1,395 @@
+body{
+  background-color: #000000;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 1600 800'%3E%3Cg %3E%3Cpolygon fill='%23060606' points='1600 160 0 460 0 350 1600 50'/%3E%3Cpolygon fill='%230c0b0c' points='1600 260 0 560 0 450 1600 150'/%3E%3Cpolygon fill='%23131113' points='1600 360 0 660 0 550 1600 250'/%3E%3Cpolygon fill='%23191619' points='1600 460 0 760 0 650 1600 350'/%3E%3Cpolygon fill='%231F1C1F' points='1600 800 0 800 0 750 1600 450'/%3E%3C/g%3E%3C/svg%3E");
+  background-attachment: fixed;
+  background-size: cover;
+  
+}
+
+:root{
+    /* Colores */
+    --negro         : #393939;
+    
+    /* Tipografía */
+    --tipo-principal   : Helvetica, Arial, sans-serif;
+    --tipo-secundaria  : Verdana;
+  }
+    
+  /* (Opcional) Las adaptamos al modo oscuro */
+  @media (prefers-color-scheme: dark) {
+    :root{
+        --negro         : #ececec;
+    }
+  }
+  
+
+
+  
+  /* Reseteamos los margin y paddings de todas las etiquetas */
+  * , *::before , *::after{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+    vertical-align: baseline;
+  }
+  *::before , *::after{
+    display: block;
+  }
+  
+  /* Evitamos problemas con las imagenes */
+  img , picture , video , iframe , figure{
+    max-width: 100%;
+    width: 100%;
+    display: block;
+    /* (Opcional) */ object-fit: cover;        
+    /* (Opcional) */ object-position: center center;
+  }
+  
+  /* Reseteamos los enlaces para funcionar como cajas... */
+  a {
+    display: block;
+    text-decoration: none;
+    color:inherit;
+    font-size:inherit;
+  }
+ 
+  
+  /* Quitamos los puntos de los <li> */
+  li {
+    list-style-type: none;
+  }
+  
+ 
+
+  /* Evitamos problemas con los pseudoelementos de quotes */
+  blockquote:before, blockquote:after, q:before, q:after {
+      content: '';
+      content: none;
+  }
+  
+
+  
+  /* Nivelamos problemas de tipografías y colocación de formularios */
+  form , input, textarea, select , button , label{
+      font-family: inherit;
+      font-size: inherit;
+      hyphens: auto;
+      background-color: transparent;
+      color:inherit;
+      display: block;
+     
+  }
+  
+
+  /* Evitamos problemas con los SVG */
+  svg{
+      width: 100%;
+      display: block;
+      fill: currentColor;
+  }
+  
+  /* Configuramos la tipografía para toda la web */
+  body {
+  
+    font-family : var(--tipo-principal);
+    color       : var(--negro);
+    
+  }
+  
+  a{
+    text-decoration: none !important;
+    color: #ffff !important;
+  }
+
+  .header{
+width: 100%;
+background-color: #000000;
+padding: 1rem;
+display: flex;
+flex-flow: row wrap;
+justify-content: space-between;
+align-items: center;
+  }
+
+  .header .Logo{
+    width: 500px;
+    height: 80px;
+  }
+
+  .header .h1{
+background-color: rgb(0, 0, 0);
+  }
+
+  .header .button{
+    background-color: rgb(0, 0, 0);
+    display: none;
+  }
+
+  .header .nav{
+    background-color: rgb(0, 0, 0);
+   
+  }
+
+  .header .svg{
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .header .ul{
+    display: flex;
+    flex-flow: nowrap;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 40px;
+
+  }
+
+  .header .in:hover{
+    background-color: #393939;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 10px;
+    transition: .5s;
+  }
+
+  .header .in{
+    margin: 0 .5em;
+  }
+
+  .nav .ul {
+direction: rtl;
+
+  }
+
+  .pre{
+    margin: 15px;
+    text-align: center;
+    position: relative;
+    right: 15px;
+  }
+  
+  .pre:hover{
+    background-color: #393939;
+    border-radius: 10px;
+    transition: .5s ease;
+  }
+  
+  .nave {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+  
+  .nave > li {
+    position: relative;
+    list-style: none;
+    margin: 0 1em;
+  }
+  
+  .nave > li > a {
+    display: block;
+    padding: 0.5em;
+    color: #ececec;
+    text-decoration: none;
+    
+  }
+  
+  .sub {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #000000;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    z-index: 1;
+    display: none;
+    border-radius: 10px;
+  }
+  
+  .sub li {
+    display: block;
+  }
+  
+  .sub li a {
+    display: block;
+    padding: 0.5em;
+    color: #ececec;
+    text-decoration: none;
+  }
+  
+  .nave > li:hover .sub {
+    display: block;
+  }
+
+  @media screen and (max-width:480px) {
+    .header .button{
+        display: block;
+        cursor: pointer;
+        color: #ececec;
+    }
+    .header .nav{
+        width: 100%;
+        /*display: none;*/
+        height: 0;
+        overflow: hidden;
+        pointer-events: none;
+        transition: all .5s ease;
+        display: flex;
+        flex-flow: column nowrap ;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        left: -15px;
+
+    }
+    .header .nav.activo{
+       /* display: block;*/
+        height: 130vh;
+        pointer-events: auto;
+        overflow: scroll;
+    }
+    .header .ul{
+        flex-direction: column;
+    }
+
+    .header .in{
+        margin: 1rem 0;
+    }
+    .header .pre{
+        margin: 1rem 0;
+    }
+
+    .pre{
+      margin: 15px;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      width: 100%;
+    }
+    
+    .pre:hover{
+      background-color: #393939;
+      border-radius: 10px;
+      transition: .5s ease;
+    }
+    
+    
+    .nave {
+      display: flex;
+      justify-content: center;
+      align-items: center; 
+      position: relative;
+      
+      
+    }
+
+  .nave .in{
+    position: relative;
+    right: 20px;
+  }
+    
+    .nave > li {
+      position: relative;
+      list-style: none;
+      margin: 0 1em;
+    }
+    
+    .nave > li > a {
+      display: block;
+      padding: 0.5em;
+      color: #ececec;
+      text-decoration: none;
+      width: 100%;
+    }
+    
+    .sub {
+      position: relative;
+      top: 100%;
+        left: 10px;
+      background-color: #000000;
+      border: 1px solid #ccc;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      z-index: 1;
+      border-radius: 10px;
+      width: 100%;
+      overflow: scroll;
+    }
+    
+    
+  }
+.container{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  top: 50px;
+  
+}
+  form {
+    width: 50%;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: #ececec;
+    box-shadow: 0px 0px 5px grey;
+    
+  }
+  label {
+    display: block;
+    margin-bottom: 10px;
+    text-transform: capitalize;
+  }
+  input[type="text"],
+  input[type="email"],
+  input[type="password"]
+   {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #ececec;
+    box-shadow: 0px 0px 5px grey;
+  }
+  .button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+    width: 100%;
+  }
+  .button:hover {
+    background-color: #45a049;
+  }
+
+  label, input{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  h1{
+    text-align: center;
+  }
+
+  .registrooo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #45a049;
+    text-transform: capitalize;
+    font-weight: bolder;
+
+  }
+
+  .existe{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #7a1604;
+    text-transform: capitalize;
+    font-weight: bolder;
+
+  }
